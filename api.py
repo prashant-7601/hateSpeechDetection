@@ -3,6 +3,7 @@ from flask import Flask, request, render_template
 import json, os
 import pandas as panda
 import regex as re
+import nltk
 from nltk.corpus import stopwords
 from nltk import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -16,6 +17,9 @@ from werkzeug.utils import secure_filename
 
 # global declarations and initializations
 app = Flask(__name__)
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 stopwords = stopwords.words("english")
 other_exclusions = ["#ff", "ff", "rt"]
 stopwords.extend(other_exclusions)
