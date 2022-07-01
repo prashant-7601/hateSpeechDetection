@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+            height: 100%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 425px;
+            height: 70%;
+            padding: 16px;
+            background-color: white;
+        }
+
+        .bg {
+            background-image: url("https://researchoutreach.org/wp-content/uploads/2020/02/OReagan-Main-Image-1200x720.jpg");
+            height: 100%;
+            width: 60%;
+            background-position: right;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        input[type=file], textarea {
+            border: none;
+            background: #f1f1f1;
+        }
+            
+        .btn {
+            background-color: #04AA6D;
+            color: white;
+            border: none;
+            cursor: pointer;
+            opacity: 0.9;
+            width:100%;
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+<body id="bg" class="bg">
+    <div class="input-group">
+        <form method="POST" action="/predict" style="margin-left: 4%; margin-top: 2%; border-top: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;" class="container">
+            <h3>HATE SPEECH DETECTION</h3>
+            <textarea name="name" id="name" class="form-control rounded" rows="20" cols="50" placeholder="Enter something...."></textarea>
+            <br/>
+            <Button id="search" class="btn btn-outline-primary" style="margin-left: 0%" action="/predict">Analyze</button>
+            <h3>------------------------------or-----------------------------</h3>
+        </form>    
+        <form method="POST" action="/filepredict" enctype = "multipart/form-data" style="margin-left: 4%; margin-top: 0%; border-bottom: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;" class="container">    
+            <input type="file" id="myfile" accept=".txt" name="myfile" style="margin-left: 20%">
+            <br/><br/>
+            <Button id="search" class="btn btn-outline-primary" style="margin-left: 0%" action="/filepredict">Analyze</button>
+        </form>
+    </div>
+</body>
+</html>

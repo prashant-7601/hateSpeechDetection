@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .column {
+            float: left;
+            width: 49%;
+            height: 200%;
+            }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        img{
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="row">
+        <div align="center" class="column" style = "border-right: 1px solid black">
+            <h1 align="center" style="color: red; font-size: 200%;"> Hate </h1>
+            <img src="{{ hateimage }}" alt="Image" > </img>
+            <br/>
+            <h3> Hate Probability: {{hate_prob}}</h1>
+            <br/>
+            {% if (hate_words is defined) and hate_words %}
+            <h3>Possible Hate words: </h3>
+            <ul>
+            {% for word in hate_words %}
+            <li>{{word}}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div align="center" class="column" style = "border-left: 1px solid black">
+            <h1 align="center" style="color: red; font-size: 200%;"> Abuse </h1>
+            <img src="{{ abuseimage }}" alt = "Image"> </img>
+            <br/>
+            <h3> Abuse Probability: {{abuse_prob}}</h1>
+            <br/>
+            {% if (abuse_words is defined) and abuse_words %}
+            <h3>Possible Abuse words: </h3>
+            <ul>
+            {% for word in abuse_words %}
+            <li>{{word}}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+    <footer class="footer" style="background: black; color:white;">
+        <h3>Here’s how you can help combat hate speech online and stop the spread of violent actions:</h3>
+        <ol>
+            <li>Hold platforms accountable for hate speech. Report tweets, YouTube videos, Instagram posts, Facebook posts, and other speech that spreads hate to the platforms that are hosting it and demand action.</li> 
+            <li>Raise awareness of the problem.</li>
+            <li>Talk to your friends and family about why hate speech is not a problem just for the internet, but our societies and culture at large</li>
+            <li>Support people who are targets of hate speech.</li> 
+            <li>Fight back against harmful messages in public places by publicly standing with victims and showing solidarity</li>
+            <li>Boost positive messages of tolerance.</li> 
+            <li>Notify organizations fighting hate about the worst instances you see.</li> 
+            <li>Tracking hate, where it’s coming from, and who it’s directed at is an important part of fighting it.</li>
+        </ol>
+    </footer>
+</body>
+</html>
